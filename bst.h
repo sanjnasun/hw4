@@ -593,7 +593,13 @@ Node<Key, Value>* node = internalFind(key);
     else if (node->getLeft() == nullptr || node->getRight() == nullptr) 
     {
         //  one child
-        Node<Key, Value>* child = (node->getLeft() != nullptr) ? node->getLeft() : node->getRight();
+            Node<Key, Value>* child;
+    if (node->getLeft() != nullptr) {
+        child = node->getLeft();
+    } else {
+        child = node->getRight();
+    }
+
         if (node == root_) {
             root_ = child;
             child->setParent(nullptr);
@@ -823,7 +829,12 @@ int BinarySearchTree<Key, Value>::subtreeHeight(Node<Key, Value>* node) const
     
     int left_height = subtreeHeight(node->getLeft());
     int right_height = subtreeHeight(node->getRight());
-    return (left_height > right_height ? left_height : right_height) + 1;
+    if (left_height > right_height) {
+    return left_height + 1;
+} else {
+    return right_height + 1;
+}
+
 }
 
 

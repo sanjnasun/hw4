@@ -474,8 +474,8 @@ void AVLTree<Key, Value>::remove(const Key& key) {
   //   }  
    
    
-      else if (node->getLeft() != NULL && node->getRight() == NULL) {
-        if (p == NULL) {
+      else if (node->getLeft() != nullptr && node->getRight() == nullptr) {
+        if (p == nullptr) {
             this->root_ = node->getLeft();
         }
         else {
@@ -490,8 +490,8 @@ void AVLTree<Key, Value>::remove(const Key& key) {
     }
 
    
-    else if (node->getLeft() == NULL && node->getRight() != NULL) {
-        if (p == NULL) {
+    else if (node->getLeft() == nullptr && node->getRight() != nullptr) {
+        if (p == nullptr) {
             this->root_ = node->getRight();
         }
         else {
